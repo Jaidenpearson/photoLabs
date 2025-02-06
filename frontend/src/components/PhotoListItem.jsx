@@ -6,13 +6,13 @@ const PhotoListItem = ({sampleDataForPhotoListItem}) => {
   
   return (
     <>
-    <div>
-      <img src={sampleDataForPhotoListItem.imageSource} alt="" />
-      <div>
-        <img src={sampleDataForPhotoListItem.profile} alt="" />
+    <div className="photo-list__item">
+      <img className="photo-list__image" src={sampleDataForPhotoListItem.imageSource} alt="" />
+      <div className="photo-list__user-details">
+        <img className="photo-list__user-profile" src={sampleDataForPhotoListItem.profile} alt="" />
         <div>
-          <p>{sampleDataForPhotoListItem.username}</p>
-          <p>{sampleDataForPhotoListItem.location.city}, {sampleDataForPhotoListItem.location.country}</p>
+          <p className="photo-list__user-info">{sampleDataForPhotoListItem.username}</p>
+          <p className="photo-list__user-location">{sampleDataForPhotoListItem.location.city}, {sampleDataForPhotoListItem.location.country}</p>
         </div>
       </div>
     </div>
