@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/PhotoListItem.scss";
+import PhotoFavButton from "./PhotoFavButton";
 
 
 const PhotoListItem = ({sampleDataForPhotoListItem}) => {
@@ -7,6 +8,7 @@ const PhotoListItem = ({sampleDataForPhotoListItem}) => {
   return (
     <>
     <div className="photo-list__item">
+      <PhotoFavButton onClick={() => console.log("clicked")}/>
       <img className="photo-list__image" src={sampleDataForPhotoListItem.imageSource} alt="" />
         <div className="photo-list__user-details">
           <img className="photo-list__user-profile" src={sampleDataForPhotoListItem.profile} alt="" />
