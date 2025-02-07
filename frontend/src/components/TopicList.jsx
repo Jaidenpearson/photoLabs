@@ -1,6 +1,8 @@
 import React from "react";
+import topics from "mocks/topics";
 
 import "../styles/TopicList.scss";
+import TopicListItem from "./TopicListItem";
 
 const sampleDataForTopicList = [
   {
@@ -20,10 +22,22 @@ const sampleDataForTopicList = [
   },
 ];
 
+const listOfTopics = (data) => {
+  const topicList = []
+  for(let topic of data) {
+    topicList.push(topic)
+  }
+  return [...new Set(topicList)]
+}
+
+const filteredTopics = listOfTopics(topics)
+
 const TopicList = () => {
   return (
     <div className="top-nav-bar__topic-list">
-      {/* Insert React */}
+      {filteredTopics.map((topic) => (
+        <TopicListItem key={topic.id} id={topic.id} title={topic.title} />
+        ))}
     </div>
   );
 };

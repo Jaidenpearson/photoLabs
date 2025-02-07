@@ -23,6 +23,11 @@ const topics = [
     "id": "5",
     "slug": "topic-5",
     "title": "Animals"
+  },
+  {
+    "id": "6",
+    "slug": "topic-5",
+    "title": "Animals"
   }
 ];
 
