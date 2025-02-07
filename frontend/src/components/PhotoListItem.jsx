@@ -3,18 +3,18 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 
-const PhotoListItem = ({sampleDataForPhotoListItem}) => {
+const PhotoListItem = ({ photoInfo }) => {
   
   return (
     <>
     <div className="photo-list__item">
-      <PhotoFavButton onClick={() => console.log("clicked")}/>
-      <img className="photo-list__image" src={sampleDataForPhotoListItem.imageSource} alt="" />
+      <PhotoFavButton />
+      <img className="photo-list__image" src={photoInfo.urls.regular} alt="" />
         <div className="photo-list__user-details">
-          <img className="photo-list__user-profile" src={sampleDataForPhotoListItem.profile} alt="" />
+          <img className="photo-list__user-profile" src={photoInfo.user.profile} alt="" />
           <div>
-            <div className="photo-list__user-info">{sampleDataForPhotoListItem.username}</div>
-            <div className="photo-list__user-location">{sampleDataForPhotoListItem.location.city}, {sampleDataForPhotoListItem.location.country}</div>
+            <div className="photo-list__user-info">{photoInfo.user.username}</div>
+            <div className="photo-list__user-location">{photoInfo.location.city}, {photoInfo.location.country}</div>
           </div>
         </div>
       </div>
