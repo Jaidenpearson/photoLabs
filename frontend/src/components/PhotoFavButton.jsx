@@ -4,6 +4,7 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton({ setPhotoIsFavourited, photoIsFavourited, photoId }) {
 
+
   const handleClick = () => {
     setPhotoIsFavourited(photoId)
   }

@@ -10,6 +10,12 @@ const App = () => {
 
   const [favouritePhotos, setPhotoIsFavourited] = useState([])
 
+  console.log(favouritePhotos.length)
+
+  const favPhotoAlert = () => {
+    favouritePhotos.length > 0 ? "" : true
+  }
+
   const toggleFavourite = (id) => {
     setPhotoIsFavourited((favourites) => 
       favourites.includes(id)
@@ -24,7 +30,8 @@ const App = () => {
         photos={photos} 
         topics={topics} 
         photoIsFavourited={favouritePhotos} 
-        setPhotoIsFavourited={toggleFavourite}/>
+        setPhotoIsFavourited={toggleFavourite}
+        favPhotoAlert={favPhotoAlert}/>
     </div>
   );
 };
