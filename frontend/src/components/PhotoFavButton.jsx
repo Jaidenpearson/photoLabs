@@ -2,9 +2,7 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
-
-  const [photoIsFavourited, setPhotoIsFavourited] = useState("False")
+function PhotoFavButton({ setPhotoIsFavourited, photoIsFavourited }) {
 
   const handleClick = () => {
     setPhotoIsFavourited(!photoIsFavourited)

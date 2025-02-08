@@ -3,12 +3,12 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
 
-const PhotoList = ({ photos }) => {
+const PhotoList = ({ photos, setPhotoIsFavourited, photoIsFavourited }) => {
   return (
     <ul className="photo-list">
         {photos.map((info) => (
           <li key={info.id}>
-            <PhotoListItem photoInfo={info}/>
+            <PhotoListItem photoInfo={info} setPhotoIsFavourited={setPhotoIsFavourited} photoIsFavourited={photoIsFavourited}/>
           </li>
       ))}
     </ul>
