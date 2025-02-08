@@ -8,7 +8,7 @@ const PhotoListItem = ({ photoInfo, setPhotoIsFavourited, photoIsFavourited }) =
   return (
     <>
     <div className="photo-list__item">
-      <PhotoFavButton setPhotoIsFavourited={setPhotoIsFavourited} photoIsFavourited={photoInfo}/>
+      <PhotoFavButton setPhotoIsFavourited={setPhotoIsFavourited} photoIsFavourited={photoIsFavourited} photoId={photoInfo.id}/>
       <img className="photo-list__image" src={photoInfo.urls.regular} alt="" />
         <div className="photo-list__user-details">
           <img className="photo-list__user-profile" src={photoInfo.user.profile} alt="" />
