@@ -38,7 +38,9 @@ const App = () => {
         {selectedPhoto !== "" 
         ? <PhotoDetailsModal 
           photoInfo={selectedPhoto}
-          setSelectedPhoto={setSelectedPhoto}/> 
+          setSelectedPhoto={setSelectedPhoto}
+          setPhotoIsFavourited={toggleFavourite}
+          photoIsFavourited={favouritePhotos}/> 
         : null}
     </div>
   );
