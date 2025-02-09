@@ -24,7 +24,7 @@ const App = () => {
       )
     }
 
-    console.log('selected photo', selectedPhoto)
+    console.log('photoInfo', photos)
 
   return (
     <div className="App">
@@ -36,11 +36,13 @@ const App = () => {
         favPhotoAlert={favPhotoAlert}
         setSelectedPhoto={setSelectedPhoto}/>
         {selectedPhoto !== "" 
-        ? <PhotoDetailsModal 
-          photoInfo={selectedPhoto}
-          setSelectedPhoto={setSelectedPhoto}
-          setPhotoIsFavourited={toggleFavourite}
-          photoIsFavourited={favouritePhotos}/> 
+        ? <PhotoDetailsModal
+            photos={photos} 
+            photoIsFavourited={favouritePhotos} 
+            setPhotoIsFavourited={toggleFavourite}
+            favPhotoAlert={favPhotoAlert}
+            setSelectedPhoto={setSelectedPhoto}
+            photoInfo={selectedPhoto}/> 
         : null}
     </div>
   );

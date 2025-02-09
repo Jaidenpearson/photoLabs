@@ -4,8 +4,7 @@ import PhotoFavButton from "./PhotoFavButton";
 
 
 const PhotoListItem = ({ photoInfo, setPhotoIsFavourited, photoIsFavourited, setSelectedPhoto }) => {
-  
-  console.log('photo info', photoInfo)
+
 
   const handleClick = () => {
     setSelectedPhoto(photoInfo)
