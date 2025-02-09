@@ -5,13 +5,17 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
-const PhotoDetailsModal = ({ photoInfo, setSelectedPhoto, setPhotoIsFavourited, photoIsFavourited }) => {
+const PhotoDetailsModal = ({ photos, photoInfo, setSelectedPhoto, setPhotoIsFavourited, photoIsFavourited }) => {
 
-  const convertToArray = (similar_photos) => {
-    return Object.values(similar_photos);
+ 
+  const similarPhotosArray = Object.values(photoInfo.similar_photos).map(photo => photo.id)
+  console.log('similar photos array', similarPhotosArray)
+
+  const filterMatchingPhotos = (similarphotosArray, photos) => {
+    return photos.filter(photo => similarphotosArray.includes(photo.id));
   };
 
-  const similarPhotos = convertToArray(photoInfo.similar_photos)
+  const similarPhotos = filterMatchingPhotos(similarPhotosArray, photos)
 
   const handleClick = () => {
     setSelectedPhoto("")
