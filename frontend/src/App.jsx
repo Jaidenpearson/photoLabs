@@ -35,7 +35,11 @@ const App = () => {
         setPhotoIsFavourited={toggleFavourite}
         favPhotoAlert={favPhotoAlert}
         setSelectedPhoto={setSelectedPhoto}/>
-        {selectedPhoto !== "" ? <PhotoDetailsModal photoInfo={selectedPhoto}/> : null}
+        {selectedPhoto !== "" 
+        ? <PhotoDetailsModal 
+          photoInfo={selectedPhoto}
+          setSelectedPhoto={setSelectedPhoto}/> 
+        : null}
     </div>
   );
 };
