@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import HomeRoute from 'routes/HomeRoute';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import './App.scss';
 import photos from "mocks/photos";
 import topics from 'mocks/topics';
@@ -9,8 +10,7 @@ import topics from 'mocks/topics';
 const App = () => {
 
   const [favouritePhotos, setPhotoIsFavourited] = useState([])
-
-  console.log(favouritePhotos.length)
+  const [selectedPhoto, setSelectedPhoto] = useState("")
 
   const favPhotoAlert = () => {
     favouritePhotos.length > 0 ? "" : true
@@ -24,6 +24,8 @@ const App = () => {
       )
     }
 
+    console.log('selected photo', selectedPhoto)
+
   return (
     <div className="App">
       <HomeRoute 
@@ -31,7 +33,9 @@ const App = () => {
         topics={topics} 
         photoIsFavourited={favouritePhotos} 
         setPhotoIsFavourited={toggleFavourite}
-        favPhotoAlert={favPhotoAlert}/>
+        favPhotoAlert={favPhotoAlert}
+        setSelectedPhoto={setSelectedPhoto}/>
+        {selectedPhoto !== "" ? <PhotoDetailsModal photoInfo={selectedPhoto}/> : null}
     </div>
   );
 };
