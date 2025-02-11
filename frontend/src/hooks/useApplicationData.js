@@ -4,18 +4,6 @@ const useApplicationData = () => {
   const [favouritePhotos, setPhotoIsFavourited] = useState([]);
   const [selectedPhoto, setSelectedPhoto] = useState("");
 
-  function reducer (state, action) {
-
-    if(action.type === "FAV_ADDED") {
-      return favouritePhotos + action.value
-    }
-
-    if(action.type === "FAV_REMOVED") {
-      return favouritePhotos - action.value
-    }
-    return state
-  }
-
   const state = {
     favouritePhotos,
     selectedPhoto,
@@ -29,9 +17,7 @@ const useApplicationData = () => {
     setSelectedPhoto("");
   };
 
-  const favPhotoAlert = () => {
-    return favouritePhotos.length > 0 ? "" : true;
-  };
+
 
   const toggleFavourite = (id) => {
     setPhotoIsFavourited((favourites) =>
