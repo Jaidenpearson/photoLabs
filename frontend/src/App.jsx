@@ -5,6 +5,7 @@ import './App.scss';
 // import photos from "mocks/photos";
 // import topics from 'mocks/topics';
 import reducer, { ACTIONS } from "../src/hooks/reducer"
+import { type } from '@testing-library/user-event/dist/type';
 
 
 // Note: Rendering a single component to build components in isolation
@@ -15,7 +16,8 @@ const App = () => {
     selectedPhoto: "",
     photos: [],
     topics: [],
-    displayPhotoDetails: false
+    displayPhotoDetails: false,
+    selectedTopic: ""
   };
   
 
@@ -37,6 +39,14 @@ const App = () => {
     }
   };
 
+  const setTopic = (topic_Id) => {
+    if (topic_Id === state.selectedTopic) {
+      dispatch({type: ACTIONS.REMOVE_TOPIC, payload: topic_Id})
+    } else {
+    dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPIC, payload: topic_Id})
+    }
+  }
+
   const favPhotoAlert = () => {
     return favouritePhotos.length > 0 ? "" : true;
   };
@@ -44,13 +54,22 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
+    if(state.selectedTopic) {
+      fetch(`http://localhost:8001/api/topics/photos/${state.selectedTopic.id}`)
+      .then((response) => response.json())
+      .then(data => {
+        dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
+      })
+      .catch(error => console.log("Error connecting to server", error))
+    } else {
     fetch('http://localhost:8001/api/photos')
     .then((response) => response.json())
     .then(data => {
       dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
     })
     .catch(error => console.log("Error connecting to server", error))
-    }, [])
+    }
+  }, [state.selectedTopic])
 
   useEffect(() => {
       fetch('http://localhost:8001/api/topics')
@@ -69,7 +88,8 @@ const App = () => {
         photoIsFavourited={state.favouritePhotos} 
         setPhotoIsFavourited={toggleFavourite}
         favPhotoAlert={favPhotoAlert}
-        setSelectedPhoto={onPhotoSelect}/>
+        setSelectedPhoto={onPhotoSelect}
+        setTopic={setTopic}/>
         {state.selectedPhoto !== "" 
         ? <PhotoDetailsModal
             photos={state.photos} 

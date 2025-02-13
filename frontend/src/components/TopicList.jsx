@@ -1,14 +1,25 @@
 import React from "react";
+import { useState } from "react";
 
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
 
-const TopicList = ({ topics }) => {
+const TopicList = ({ topics, setTopic }) => {
+
+
+  const handleClick = (topic) => {
+    setTopic(topic)
+  }
+
   return (
     <div className="top-nav-bar__topic-list">
       {topics.map((topic) => (
-        <TopicListItem key={topic.id} id={topic.id} title={topic.title} />
+        <TopicListItem 
+          key={topic.id} 
+          id={topic.id} 
+          title={topic.title} 
+          onClick={() => handleClick(topic)}/>
         ))}
     </div>
   );
