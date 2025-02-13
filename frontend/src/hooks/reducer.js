@@ -9,6 +9,8 @@ export const ACTIONS = {
   REMOVE_TOPIC: 'REMOVE_TOPIC'
 }
 
+//All cases in which the state can be manipulated
+
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.FAV_PHOTO_ADDED:

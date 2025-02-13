@@ -2,14 +2,14 @@ import React, { useReducer, useEffect } from 'react';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import './App.scss';
-// import photos from "mocks/photos";
-// import topics from 'mocks/topics';
 import reducer, { ACTIONS } from "../src/hooks/reducer"
 import { type } from '@testing-library/user-event/dist/type';
 
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+
+  //State of app on initial render
 
   const initialState = {
     favouritePhotos: [],
@@ -19,6 +19,10 @@ const App = () => {
     displayPhotoDetails: false,
     selectedTopic: ""
   };
+
+  //State management and action creators
+
+  const [state, dispatch] = useReducer(reducer, initialState)
   
 
   const onPhotoSelect = (photo) => {
@@ -43,7 +47,7 @@ const App = () => {
     if (topic_Id === state.selectedTopic) {
       dispatch({type: ACTIONS.REMOVE_TOPIC, payload: topic_Id})
     } else {
-    dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPIC, payload: topic_Id})
+      dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPIC, payload: topic_Id})
     }
   }
 
@@ -51,7 +55,7 @@ const App = () => {
     return favouritePhotos.length > 0 ? "" : true;
   };
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  //Fetches to server for photos and topics
 
   useEffect(() => {
     if(state.selectedTopic) {
