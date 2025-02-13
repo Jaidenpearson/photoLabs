@@ -4,7 +4,13 @@ import PhotoList from 'components/PhotoList';
 import '../styles/HomeRoute.scss';
 import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 
-const HomeRoute = ({ photos, topics, setPhotoIsFavourited, photoIsFavourited, setSelectedPhoto, setTopic }) => {
+const HomeRoute = ({ 
+  photos, 
+  topics, 
+  setPhotoIsFavourited, 
+  photoIsFavourited, 
+  setSelectedPhoto, 
+  setTopic }) => {
   return (
     <div className="home-route">
       <TopNavigation 

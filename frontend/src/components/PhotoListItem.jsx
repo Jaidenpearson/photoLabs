@@ -3,7 +3,11 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 
-const PhotoListItem = ({ photoInfo, setPhotoIsFavourited, photoIsFavourited, setSelectedPhoto }) => {
+const PhotoListItem = ({ 
+  photoInfo, 
+  setPhotoIsFavourited, 
+  photoIsFavourited, 
+  setSelectedPhoto }) => {
 
   //Renders modal on click and pulls similar photos underneath larger image
   const handleClick = () => {

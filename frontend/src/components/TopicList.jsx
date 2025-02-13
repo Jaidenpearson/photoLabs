@@ -5,7 +5,9 @@ import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
 
-const TopicList = ({ topics, setTopic }) => {
+const TopicList = ({ 
+  topics, 
+  setTopic }) => {
 
   //Selects topics from the top nav of the page and filters photos 
   const handleClick = (topic) => {

@@ -3,7 +3,10 @@ import "../styles/TopicListItem.scss";
 
 
 
-const TopicListItem = ({id, title, onClick}) => {
+const TopicListItem = ({
+  id, 
+  title, 
+  onClick}) => {
 
   return (
     <div className="topic-list__item" onClick={onClick}>

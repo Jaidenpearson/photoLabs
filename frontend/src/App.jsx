@@ -36,7 +36,7 @@ const App = () => {
   };
 
   const toggleFavourite = (id) => {
-    if (initialState.favouritePhotos.includes(id)) {
+    if (state.favouritePhotos.includes(id)) {
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: id });
     } else {
       dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: id });

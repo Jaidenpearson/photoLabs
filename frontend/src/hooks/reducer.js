@@ -6,6 +6,7 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   GET_PHOTOS_BY_TOPIC: 'GET_PHOTOS_BY_TOPIC',
+  GET_LIKED_PHOTOS: 'GET_LIKED_PHOTOS',
   REMOVE_TOPIC: 'REMOVE_TOPIC'
 }
 
@@ -52,6 +53,11 @@ function reducer(state, action) {
         return {
           ...state,
           selectedTopic: state.selectedTopic === ""
+        }
+      case ACTIONS.GET_LIKED_PHOTOS:
+        return{
+          ...state,
+          
         }
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);

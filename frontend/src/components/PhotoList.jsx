@@ -3,7 +3,11 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
 
-const PhotoList = ({ photos, setPhotoIsFavourited, photoIsFavourited, setSelectedPhoto }) => {
+const PhotoList = ({ 
+  photos, 
+  setPhotoIsFavourited, 
+  photoIsFavourited, 
+  setSelectedPhoto }) => {
   return (
     <ul className="photo-list">
         {photos.map((info) => (

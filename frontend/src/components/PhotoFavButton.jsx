@@ -2,7 +2,10 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ setPhotoIsFavourited, photoIsFavourited, photoId }) {
+function PhotoFavButton({ 
+  setPhotoIsFavourited, 
+  photoIsFavourited, 
+  photoId }) {
 
   //Adds photo to favourite list in state and fills in heart icon 
   const handleClick = () => {
