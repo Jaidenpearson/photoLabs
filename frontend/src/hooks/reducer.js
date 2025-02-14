@@ -7,7 +7,8 @@ export const ACTIONS = {
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   GET_PHOTOS_BY_TOPIC: 'GET_PHOTOS_BY_TOPIC',
   GET_LIKED_PHOTOS: 'GET_LIKED_PHOTOS',
-  REMOVE_TOPIC: 'REMOVE_TOPIC'
+  REMOVE_TOPIC: 'REMOVE_TOPIC',
+  DISPLAY_FAV_PHOTOS: 'DISPLAY_FAV_PHOTOS'
 }
 
 //All cases in which the state can be manipulated
@@ -57,7 +58,11 @@ function reducer(state, action) {
       case ACTIONS.GET_LIKED_PHOTOS:
         return{
           ...state,
-          
+        }
+      case ACTIONS.DISPLAY_FAV_PHOTOS:
+        return {
+          ...state,
+          displayFavouritePhotos: action.payload
         }
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);

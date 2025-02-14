@@ -17,7 +17,8 @@ const App = () => {
     photos: [],
     topics: [],
     displayPhotoDetails: false,
-    selectedTopic: ""
+    selectedTopic: "",
+    displayFavouritePhotos: false
   };
 
   //State management and action creators
@@ -51,6 +52,13 @@ const App = () => {
     }
   }
 
+  const displayFavourites = () => {
+    if(state.displayFavouritePhotos) {
+      dispatch({type: ACTIONS.DISPLAY_FAV_PHOTOS, payload: false})
+    } else {
+      dispatch({type:ACTIONS.DISPLAY_FAV_PHOTOS, payload: true})
+    }
+  }
   const favPhotoAlert = () => {
     return favouritePhotos.length > 0 ? "" : true;
   };
@@ -93,7 +101,10 @@ const App = () => {
         setPhotoIsFavourited={toggleFavourite}
         favPhotoAlert={favPhotoAlert}
         setSelectedPhoto={onPhotoSelect}
-        setTopic={setTopic}/>
+        setTopic={setTopic}
+        displayFavourites={displayFavourites}
+        areFavouritesDisplayed={state.displayFavouritePhotos}
+        favouritePhotos={state.favouritePhotos}/>
         {state.selectedPhoto !== "" 
         ? <PhotoDetailsModal
             photos={state.photos} 

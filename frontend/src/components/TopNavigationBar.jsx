@@ -7,7 +7,8 @@ import '../styles/TopNavigationBar.scss'
 const TopNavigation = ({ 
   topics, 
   photoIsFavourited, 
-  setTopic }) => {
+  setTopic,
+  displayFavourites }) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
@@ -17,6 +18,7 @@ const TopNavigation = ({
           />
       <FavBadge 
         selected={"true"}isFavPhotoExist={photoIsFavourited.length ? true : ""}
+        displayFavourites={displayFavourites}
         />
     </div>
   )
